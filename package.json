@@ -1,0 +1,20 @@
+{
+  "name": "AI-Knowledge-Assistant",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend dev",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,json}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.0"
+  },
+  
+  "lint-staged": {
+    "*.{ts,tsx}": ["eslint --fix", "prettier --write"],
+    "*.{json,md}": ["prettier --write"]
+  }
+}
+
+

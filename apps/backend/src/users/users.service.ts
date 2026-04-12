@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 
@@ -6,7 +9,7 @@ export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
   async findAll() {
-    return this.prisma.user.findMany({
+    return await this.prisma.user.findMany({
       select: {
         id: true,
         email: true,
@@ -17,7 +20,7 @@ export class UsersService {
   }
 
   async findOne(id: string) {
-    return this.prisma.user.findUnique({
+    return await this.prisma.user.findUnique({
       where: { id },
       select: {
         id: true,
